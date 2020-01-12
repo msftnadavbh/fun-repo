@@ -1,0 +1,20 @@
+## Kubernetes Manifest file - Deployment
+apiVersion: apps/v1 
+kind: Deployment
+metadata:
+  name: brownbag-deployment
+spec:
+  selector:
+    matchLabels:
+      app: brownbag
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: brownbag
+    spec:
+      containers:
+      - name: brownbag
+        image: testacr03.azurecr.io/samples/brownbag:latest
+        ports:
+        - containerPort: 80
