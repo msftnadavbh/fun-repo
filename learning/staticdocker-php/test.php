@@ -4,15 +4,17 @@
  </head>
  <body>
 <body bgcolor="#f1f1f1" text="Blue">
-<img src="http://4.bp.blogspot.com/-JQwen3M09tw/VpTFbGHVgMI/AAAAAAAAAFI/m7sRDGpBdCs/s1600/DckerStart.jpeg" alt="Docker">
+<img src="https://nadavstrg.blob.core.windows.net/public/docker-gif-.gif" alt="Docker">
 <h1>If you're seeing this, your website works!</h1>
 <?php
+echo "<br>";
 echo 'Your IP Address is ';
 echo $_SERVER['REMOTE_ADDR'];
 echo "<br>";
 echo 'Your browser is ';
 echo $_SERVER['HTTP_USER_AGENT'];
 echo "<br>";
+
 ?> 
  </body>
 </html>
