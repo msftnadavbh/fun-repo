@@ -1,2 +1,3 @@
 # fun-repo
-For learning
+Welcome to my repo!
+
