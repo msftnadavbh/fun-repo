@@ -1,4 +1,4 @@
-## Kubernetes Manifest file - Deployment
+# Kubernetes Manifest file - Deployment
 apiVersion: apps/v1 
 kind: Deployment
 metadata:
@@ -7,7 +7,7 @@ spec:
   selector:
     matchLabels:
       app: testphp
-  replicas: 2
+  replicas: 4
   template:
     metadata:
       labels:
@@ -16,5 +16,6 @@ spec:
       containers:
       - name: testphp
         image: testacr03.azurecr.io/testphp:latest
+        imagePullPolicy: Always
         ports:
         - containerPort: 80
