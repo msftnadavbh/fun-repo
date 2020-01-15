@@ -18,3 +18,6 @@ kubectl apply -f [file].yaml
 
 ## Expose deployment to the outside world
 kubectl expose deployment/deploymentname --type=LoadBalancer --name=[name]-svc
+
+## Patch the service to show source IP
+kubectl patch svc php-svc -p '{"spec":{"externalTrafficPolicy":"Local"}}'
