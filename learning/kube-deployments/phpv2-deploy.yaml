@@ -2,12 +2,12 @@
 apiVersion: apps/v1 
 kind: Deployment
 metadata:
-  name: php-deployment
+  name: phpv2-deployment
 spec:
   selector:
     matchLabels:
       app: testphp
-  replicas: 2
+  replicas: 1
   template:
     metadata:
       labels:
@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
       - name: testphp
-        image: testacr03.azurecr.io/testphp:latest
+        image: testacr03.azurecr.io/phpv2:latest
         imagePullPolicy: Always
         env:
         - name: POD_NAME
@@ -31,5 +31,3 @@ spec:
       - name: volume
         persistentVolumeClaim:
           claimName: azure-managed-disk
-      nodeSelector:
-        hostname: aks-agentpool-24920912-vmss000000
