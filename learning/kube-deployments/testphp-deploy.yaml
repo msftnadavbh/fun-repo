@@ -17,19 +17,5 @@ spec:
       - name: testphp
         image: testacr03.azurecr.io/testphp:latest
         imagePullPolicy: Always
-        env:
-        - name: POD_NAME
-          valueFrom:
-            fieldRef:
-              fieldPath: metadata.name
         ports:
         - containerPort: 80
-        volumeMounts:
-        - name: volume
-          mountPath: /"/mnt/azure"
-      volumes:
-      - name: volume
-        persistentVolumeClaim:
-          claimName: azure-managed-disk
-      nodeSelector:
-        hostname: aks-agentpool-24920912-vmss000000
