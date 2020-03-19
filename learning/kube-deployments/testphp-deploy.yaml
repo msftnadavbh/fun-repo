@@ -6,15 +6,15 @@ metadata:
 spec:
   selector:
     matchLabels:
-      app: testphp
-  replicas: 2
+      app: whalephp
+  replicas: 3
   template:
     metadata:
       labels:
-        app: testphp
+        app: whalephp
     spec:
       containers:
-      - name: testphp
+      - name: whalephp
         image: testacr03.azurecr.io/testphp:latest
         imagePullPolicy: Always
         ports:
