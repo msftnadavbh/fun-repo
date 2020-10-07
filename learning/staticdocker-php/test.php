@@ -1,6 +1,6 @@
 <html>
  <head>
-  <title>I'm just testing stuff</title>
+  <title>Test Website</title>
  </head>
  <body>
 <body bgcolor="#f1f1f1" text="Blue">
