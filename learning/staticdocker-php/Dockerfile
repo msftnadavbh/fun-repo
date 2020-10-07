@@ -1,9 +1,7 @@
 ## Build a Container running a PHP page
-FROM testacr03.azurecr.io/ubuntubionic:v1
+FROM ubuntu:18.04
 ENV DEBIAN_FRONTEND noninteractive
-MAINTAINER nadavbh
-RUN apt-get update -y && apt-get upgrade -y && apt-get install apache2 -y && apt-get install php -y && apt-get install uuid-runtime -y
-RUN uuidgen > ~/guid.txt
+RUN apt-get update -y && apt-get upgrade -y && apt-get install apache2 -y && apt-get install php -y
 COPY test.php /var/www/html
 EXPOSE 80
 CMD apachectl -D FOREGROUND
