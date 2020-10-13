@@ -33,7 +33,7 @@ az aro create \
   --worker-subnet worker-subnet \
   --master-vm-size Standard_D8s_v3 \
   --worker-vm-size Standard_D4s_v3 \
-  --worker-vm-disk-size-gb 128
+  --worker-vm-disk-size-gb 128 \
   --worker-count 3 \
   --apiserver-visibility Private \
   --ingress-visibility Private \
