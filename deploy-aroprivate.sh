@@ -1,3 +1,7 @@
+$LOCATION=northeurope
+$RESOURCEGROUP=aro-rg
+$CLUSTER=aro
+
 az group create --name $RESOURCEGROUP --location $LOCATION 
 
 az network vnet create \
@@ -37,4 +41,4 @@ az aro create \
   --worker-count 3 \
   --apiserver-visibility Private \
   --ingress-visibility Private \
-  --debug
+  --no-wait
