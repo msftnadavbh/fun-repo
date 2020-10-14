@@ -1,24 +1,25 @@
-$LOCATION=northeurope
-$RESOURCEGROUP=aro-rg
-$CLUSTER=aro
+LOCATION=northeurope
+RESOURCEGROUP=aro-rg
+CLUSTER=aro
+VNETname=vnet1
 
 az group create --name $RESOURCEGROUP --location $LOCATION 
 
 az network vnet create \
 --resource-group $RESOURCEGROUP \
---name vnet-aro-nonprod-eastus \
+--name $VNETname \
 --address-prefixes 10.0.0.0/22
 
 az network vnet subnet create \
 --resource-group $RESOURCEGROUP \
---vnet-name vnet-aro-nonprod-eastus \
+--vnet-name $VNETname \
 --name master-subnet \
 --address-prefixes 10.0.0.0/23 \
 --service-endpoints Microsoft.ContainerRegistry
 
 az network vnet subnet create \
 --resource-group $RESOURCEGROUP \
---vnet-name vnet-aro-nonprod-eastus \
+--vnet-name $VNETname \
 --name worker-subnet \
 --address-prefixes 10.0.2.0/23 \
 --service-endpoints Microsoft.ContainerRegistry
@@ -26,13 +27,13 @@ az network vnet subnet create \
 az network vnet subnet update \
 --name master-subnet \
 --resource-group $RESOURCEGROUP \
---vnet-name vnet-aro-nonprod-eastus \
+--vnet-name $VNETname \
 --disable-private-link-service-network-policies true
 
 az aro create \
   --resource-group $RESOURCEGROUP \
   --name $CLUSTER \
-  --vnet vnet-aro-nonprod-eastus \
+  --vnet $VNETname \
   --master-subnet master-subnet \
   --worker-subnet worker-subnet \
   --master-vm-size Standard_D8s_v3 \
