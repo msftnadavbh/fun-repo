@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
       - name: testcontainer
-        image: testacr03.azurecr.io/testphp
+        image: myacr031.azurecr.io/testphp:v1
         imagePullPolicy: Always
         env:
         - name: POD_NAME
