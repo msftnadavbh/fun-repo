@@ -1,0 +1,26 @@
+# Kubernetes Manifest file - Deployment
+apiVersion: apps/v1 
+kind: Deployment
+metadata:
+  name: testphp-dp
+spec:
+  selector:
+    matchLabels:
+      app: testphp
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: testphp
+    spec:
+      containers:
+      - name: testcontainer
+        image: testacr03.azurecr.io/testphp
+        imagePullPolicy: Always
+        env:
+        - name: POD_NAME
+          valueFrom:
+            fieldRef:
+              fieldPath: metadata.name
+        ports:
+        - containerPort: 80
